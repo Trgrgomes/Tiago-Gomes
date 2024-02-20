@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-UA-compatible" content="ie=edge">
+  <title>Static Template</title>
+   
+  <style>
+    body {
+      background-color: #00000000;
+      margin: 0; /* Removendo margens padrão */
+      padding: 0; /* Removendo preenchimentos padrão */
+    }
+    .sidebar {
+      height: 100%; /* Altura Total */
+      width: 250px; /* Largura do menu Lateral */
+      position: fixed; /* Fixar o menu Lateral na Tela */
+      top: 0;
+      left: 0;
+      background-color: #a9a9a9; /* Cor de fundo do menu */
+      padding-top: 20px; /* Espaçamento superior */
+    }
+
+    .sidebar a {
+      padding: 10px 15px; /* Espaçamento do link */
+      text-decoration: none; /* Remover sublinhado */
+      color: #fff; /* Cor do Texto */
+      display: block; /* Exibir os links em bloco */
+    }
+
+    .sidebar a:hover {
+      background-color: #555; /* Cor de fundo ao passar o mouse */
+    }
+
+    .content {
+      margin-left: 250px; /* Deixar espaço para o menu lateral */
+      padding: 20px; /* Espaçamento interno do conteúdo */
+    }
+
+    .btn {
+      display: block;
+      margin: 10px auto;
+      background-color: #00000000;
+      color: #000000;
+      font-size: 24px;
+      font-weight: bold;
+      border: 0;
+      padding: 25px 45px;
+      border-radius: 12px;
+      text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    img {
+      width: 900px;
+      height: 800px;
+      display: none;
+      margin: 0px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="#" id="linkPaginaInicial">Pagina Inicial</a>
+    <button class="btn" onclick="toggleInformacoes()">Informações</button>
+    <a href="#" id="informacoesLink" style="display: none;">- <a href="https://pt.wikipedia.org/wiki/Boeing_737" target="_blank">Informações</a></a>
+    <button class="btn" onclick="togglePrevisao()">Previsão Do Tempo</button>
+    <a href="#" id="previsaoLink" style="display: none;">- <a href="https://www.climatempo.com.br/brasil">Previsão Do Tempo</a></a>
+    <button class="btn" onclick="mostrarSurpresa()">Clique Para Abrir</button>
+        
+    <!-- Adicione mais links do menu aqui, se necessário -->
+  </div>
+
+  <div class="content">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8SDw0SEw0PEhISDQ0PFRcPDQ8PDxIPFREWFhUSFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQMCB//EACUQAQACAgEFAAIDAQEAAAAAAAABsTFhcREhQVGBAhKRocEyA//EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD2yik3GFoCjHBjgoDHC0mODHAKUlLQAUAAdQUQBQAURQAAUTqApAAAAAAAAAAKgCiAMtxjybjCR7hdwC0UbjBuMAUY4N+CgMcLRSY4BaKKKAoKKACgBUUAAFQUARQFQBQARUAUAAAAAAAGO4+wbj7Cbj7Cx7j7ALHuF3GEj3H1dx9Bdxgo3BuAKKNxgoDHBRRQFFFGOAKKMcGOAA6fwoAigigAKgKAAACoAKAAB1AAAOonXQMY9xnzCx7j7CR7jtMZhYjr3jPmAXcfYXcfYc7j7C7j7ALuF3CR7j7Cx7gDcGzp5g3AG/BS7g3AJRjg4woJjhaKKAoojtwUCUtFFABRQCgAIoAAAAKAAgAAAHcO4Ms947TGTPeO0+Tp174mFz3xMAbjPldxnyZ7xldxkEj3H1dwR7jJuMgbhdwR7g4A3BuAA4OA4A4DcG4Aoo3BwBRRwcAUUUY4AVKUAAAEBQAAAASgWUxwUY4An+juY4TpPgEjvqYM6mDOpXOpgDOpg35M8rYG/JZYAWtgIKAIqAGwsDcG4LAODcG4I9wBuCjcG4AgojRsAAFKRQAAEKKAxwY4KOvTgDHCT24McJjgFntwdJ8YTHCfrPiewOs8rnlM8rYGdSWtgFooABIAACKAAgFlhYHT+SyywDcFlgbNwWAbg3BwbgDYbg4AODcG4A2bhNwbgDcYNxg3CdfMYAx3jBjvGKOvmMJjvGPOgOvTv4o/X1PbaY7xjzo/T1PSAacqAFgAAoAAIAAAAioAWAFlgBaWtlgR/ZaWtgWWZ5SwXjJwlrYJuF3BvynGQXcJuF3BvynGQXcJuDfk3AG4TcfYXcJuP4BNx9hOvmMeYXcfYTcfYBOvTvGP
+  </div>
+
+  <script>
+    function toggleInformacoes() {
+      var informacoesLink = document.getElementById("informacoesLink");
+      if (informacoesLink.style.display === "none") {
+        informacoesLink.style.display = "block";
+      } else {
+        informacoesLink.style.display = "none";
+      }
+    }
+
+    function togglePrevisao() {
+      var previsaoLink = document.getElementById("previsaoLink");
+      if (previsaoLink.style.display === "none") {
+        previsaoLink.style.display = "block";
+      } else {
+        previsaoLink.style.display = "none";
+      }
+    }
+
+    function mostrarSurpresa() {
+      document.querySelector('img').style.display = "block";
+    }
+
+    document.getElementById("linkPaginaInicial").addEventListener("click", function(event) {
+      event.preventDefault(); // Previne o comportamento padrão do link
+      window.location.href = "https://yl6984-5000.csb.app"; // Redireciona para a página inicial
+    });
+
+    // Codigo para alinhar os botoes à margem esquerda
+    var buttons = document.querySelectorAll(".btn");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.textAlign = "left";
+    }
+  </script>
+</body>
+</html>
